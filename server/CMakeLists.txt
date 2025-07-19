@@ -1,6 +1,6 @@
 # bmi-example-cxx-grpc4bmi
 
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.16)
 project(bmi-example-cxx-grpc4bmi
   VERSION 0.1.0
   LANGUAGES CXX
@@ -11,17 +11,23 @@ include(GNUInstallDirs)
 find_package(PkgConfig REQUIRED)
 
 pkg_check_modules(BMIHEATCXX REQUIRED IMPORTED_TARGET bmiheatcxx)
-message(STATUS "  Include dir: ${BMIHEATCXX_INCLUDE_DIRS}")
-message(STATUS "  Library path: ${BMIHEATCXX_LINK_LIBRARIES}")
+list(APPEND CMAKE_MESSAGE_INDENT "  ")
+message(STATUS "Include directory: ${BMIHEATCXX_INCLUDE_DIRS}")
+message(STATUS "Library path: ${BMIHEATCXX_LINK_LIBRARIES}")
+list(POP_BACK CMAKE_MESSAGE_INDENT)
 include_directories(${BMIHEATCXX_INCLUDE_DIRS})
 
 pkg_check_modules(PROTOBUF REQUIRED IMPORTED_TARGET protobuf)
-message(STATUS "  Include dir: ${PROTOBUF_INCLUDE_DIRS}")
-message(STATUS "  Library path: ${PROTOBUF_LINK_LIBRARIES}")
+list(APPEND CMAKE_MESSAGE_INDENT "  ")
+message(STATUS "Include directory: ${PROTOBUF_INCLUDE_DIRS}")
+message(STATUS "Library path: ${PROTOBUF_LINK_LIBRARIES}")
+list(POP_BACK CMAKE_MESSAGE_INDENT)
 
 pkg_check_modules(GRPC4BMI REQUIRED IMPORTED_TARGET grpc4bmi)
-message(STATUS "  Include dir: ${GRPC4BMI_INCLUDE_DIRS}")
-message(STATUS "  Library path: ${GRPC4BMI_LINK_LIBRARIES}")
+list(APPEND CMAKE_MESSAGE_INDENT "  ")
+message(STATUS "Include directory: ${GRPC4BMI_INCLUDE_DIRS}")
+message(STATUS "Library path: ${GRPC4BMI_LINK_LIBRARIES}")
+list(POP_BACK CMAKE_MESSAGE_INDENT)
 
 set(server_exe heatcxx-grpc4bmi-server)
 
