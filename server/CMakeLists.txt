@@ -15,7 +15,6 @@ list(APPEND CMAKE_MESSAGE_INDENT "  ")
 message(STATUS "Include directory: ${BMIHEATCXX_INCLUDE_DIRS}")
 message(STATUS "Library path: ${BMIHEATCXX_LINK_LIBRARIES}")
 list(POP_BACK CMAKE_MESSAGE_INDENT)
-include_directories(${BMIHEATCXX_INCLUDE_DIRS})
 
 pkg_check_modules(PROTOBUF REQUIRED IMPORTED_TARGET protobuf)
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
@@ -33,6 +32,7 @@ set(server_exe heatcxx-grpc4bmi-server)
 
 add_executable(${server_exe} ${server_exe}.cxx)
 target_link_libraries(${server_exe} ${BMIHEATCXX_LINK_LIBRARIES} ${PROTOBUF_LINK_LIBRARIES} ${GRPC4BMI_LINK_LIBRARIES})
+target_include_directories(${server_exe} PUBLIC ${GRPC4BMI_INCLUDE_DIRS})
 
 install(
   TARGETS ${server_exe}
