@@ -3,7 +3,7 @@ FROM csdms/grpc4bmi
 
 LABEL maintainer="Mark Piper <mark.piper@colorado.edu>"
 
-RUN git clone --branch v2.1.2 --depth 1 https://github.com/csdms/bmi-example-cxx /opt/bmi-example-cxx
+RUN git clone --branch mdpiper/update-source-and-build --depth 1 https://github.com/csdms/bmi-example-cxx /opt/bmi-example-cxx
 WORKDIR /opt/bmi-example-cxx/_build
 RUN cmake .. && \
     make && \
