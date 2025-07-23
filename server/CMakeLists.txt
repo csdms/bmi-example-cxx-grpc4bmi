@@ -22,6 +22,12 @@ message(STATUS "Include directory: ${PROTOBUF_INCLUDE_DIRS}")
 message(STATUS "Library path: ${PROTOBUF_LINK_LIBRARIES}")
 list(POP_BACK CMAKE_MESSAGE_INDENT)
 
+pkg_check_modules(GRPCPP REQUIRED IMPORTED_TARGET grpc++)
+list(APPEND CMAKE_MESSAGE_INDENT "  ")
+message(STATUS "Include directory: ${GRPCPP_INCLUDE_DIRS}")
+message(STATUS "Library path: ${GRPCPP_LINK_LIBRARIES}")
+list(POP_BACK CMAKE_MESSAGE_INDENT)
+
 pkg_check_modules(GRPC4BMI REQUIRED IMPORTED_TARGET grpc4bmi)
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
 message(STATUS "Include directory: ${GRPC4BMI_INCLUDE_DIRS}")
@@ -29,9 +35,15 @@ message(STATUS "Library path: ${GRPC4BMI_LINK_LIBRARIES}")
 list(POP_BACK CMAKE_MESSAGE_INDENT)
 
 set(server_exe heatcxx-grpc4bmi-server)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lgrpc++_reflection")
 
 add_executable(${server_exe} ${server_exe}.cxx)
-target_link_libraries(${server_exe} ${BMIHEATCXX_LINK_LIBRARIES} ${PROTOBUF_LINK_LIBRARIES} ${GRPC4BMI_LINK_LIBRARIES})
+target_link_libraries(${server_exe}
+  ${BMIHEATCXX_LINK_LIBRARIES}
+  ${PROTOBUF_LINK_LIBRARIES}
+  ${GRPCPP_LINK_LIBRARIES}
+  ${GRPC4BMI_LINK_LIBRARIES}
+)
 target_include_directories(${server_exe} PUBLIC ${GRPC4BMI_INCLUDE_DIRS})
 
 install(
