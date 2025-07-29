@@ -1,5 +1,5 @@
 # A grpc4bmi server for the `HeatCxx` model from bmi-example-cxx.
-FROM csdms/grpc4bmi:0.1.0
+FROM csdms/grpc4bmi:0.2.0
 
 LABEL org.opencontainers.image.authors="Mark Piper <mark.piper@colorado.edu>"
 LABEL org.opencontainers.image.source="https://github.com/csdms/bmi-example-cxx-grpc4bmi"
