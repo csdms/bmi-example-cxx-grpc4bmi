@@ -1,5 +1,5 @@
 # grpc4bmi server for `HeatCxx` model from bmi-example-cxx.
-FROM mdpiper/grpc4bmi-154
+FROM mdpiper/grpc4bmi
 
 LABEL maintainer="Mark Piper <mark.piper@colorado.edu>"
 
