@@ -11,7 +11,7 @@ through Python.
 There are two options for building this project:
 
 1. from a base image, [source-base](./images/source-base/), where grpc, grpc4bmi, and the BMI C++ example are all built from source
-1. from a base image, [conda-base](./images/conda-base/), where grpc and the BMI C++ example are installed through conda-forge packages, and grpc4bmi is built from source
+1. from a base image, [conda-base](./images/conda-base/), where grpc is installed through conda-forge, the BMI C++ example is installed from a separate conda-based Docker image, and grpc4bmi is built from source
 
 ### source-base
 
