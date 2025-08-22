@@ -7,7 +7,7 @@ RUN git clone --branch v2.1.3 --depth 1 https://github.com/csdms/bmi-example-cxx
 WORKDIR /opt/bmi-example-cxx/_build
 RUN cmake .. && \
     make && \
-    make test && \
+    ctest -V && \
     make install && \
     make clean
 
