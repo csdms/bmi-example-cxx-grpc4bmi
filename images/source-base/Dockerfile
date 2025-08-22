@@ -1,4 +1,4 @@
-# grpc4bmi server for `HeatCxx` model from bmi-example-cxx.
+# A grpc4bmi server for the bmi-example-cxx `Heat` model.
 FROM mdpiper/grpc4bmi
 
 LABEL maintainer="Mark Piper <mark.piper@colorado.edu>"
@@ -11,7 +11,6 @@ RUN cmake .. && \
     make install && \
     make clean
 
-# Build the grpc4bmi server for the `heatcxx` model.
 COPY server /opt/heatcxx-grpc4bmi-server
 WORKDIR /opt/heatcxx-grpc4bmi-server/_build
 RUN cmake .. && \
