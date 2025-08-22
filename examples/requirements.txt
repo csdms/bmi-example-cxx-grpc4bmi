@@ -1,2 +1,2 @@
 grpc4bmi
-numpy
+jupyter
