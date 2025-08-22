@@ -10,8 +10,10 @@ through Python.
 
 There are two options for building this project:
 
-1. from a base image, [source-base](./images/source-base/), where grpc, grpc4bmi, and the BMI C++ example are all built from source
-1. from a base image, [conda-base](./images/conda-base/), where grpc is installed through conda-forge, the BMI C++ example is installed from a separate conda-based Docker image, and grpc4bmi is built from source
+1. from a base image, [source-base](./images/source-base/), where grpc and its dependent libraries, grpc4bmi, and the BMI C++ example are all built from source
+1. from a base image, [conda-base](./images/conda-base/), where grpc and its dependent libraries are installed through conda-forge, the BMI C++ example is installed from a separate conda-based Docker image, and grpc4bmi is built from source
+
+In each case, the grpc4bmi server is exposed through port 55555.
 
 ### source-base
 
@@ -19,10 +21,9 @@ Build this example locally with:
 ```
 docker build --tag bmi-example-cxx-grpc4bmi images/source-base
 ```
-The image is built on the [mdpiper/grpc4bmi](https://hub.docker.com/r/mdpiper/grpc4bmi) base image.
+The image is (temporarily) built on the [mdpiper/grpc4bmi](https://hub.docker.com/r/mdpiper/grpc4bmi) base image.
 The OS is Linux/Ubuntu.
 The C++ BMI example, grpc4bmi, and the grpc4bmi server are installed in `/usr/local`.
-The server is exposed through port 55555.
 
 ### conda-base
 
@@ -34,7 +35,6 @@ The image is built on the [csdms/grpc4bmi](https://hub.docker.com/r/csdms/grpc4b
 which is built on the [condaforge/miniforge3](https://hub.docker.com/r/condaforge/miniforge3) base image.
 The OS is Linux/Ubuntu.
 The C++ BMI example, grpc4bmi, and the grpc4bmi server are installed in `/opt/conda`.
-The server is exposed through port 55555.
 
 ## Run
 
