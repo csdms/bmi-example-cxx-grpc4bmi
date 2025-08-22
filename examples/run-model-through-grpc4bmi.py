@@ -16,7 +16,7 @@ from grpc4bmi.bmi_client_docker import BmiClientDocker
 # * which Docker image to use,
 # * the port exposed through the image, and
 # * the location in the image of the configuration file used for the model.
-DOCKER_IMAGE = "mdpiper/bmi-example-cxx-grpc4bmi-154"
+DOCKER_IMAGE = "csdms/bmi-example-cxx-grpc4bmi:latest"
 BMI_PORT = 55555
 CONFIG_FILE = pathlib.Path("/opt/bmi-example-cxx") / "testing" / "config.txt"
 
