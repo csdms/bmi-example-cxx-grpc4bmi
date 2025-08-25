@@ -1,3 +1,8 @@
+[![Basic Model Interface](https://img.shields.io/badge/CSDMS-Basic%20Model%20Interface-green.svg)](https://bmi.readthedocs.io/)
+[![Test](https://github.com/csdms/bmi-example-cxx-grpc4bmi/actions/workflows/test.yml/badge.svg)](https://github.com/csdms/bmi-example-cxx-grpc4bmi/actions/workflows/test.yml)
+[![Docker Hub](https://github.com/csdms/bmi-example-cxx-grpc4bmi/actions/workflows/release.yml/badge.svg)](https://github.com/csdms/bmi-example-cxx-grpc4bmi/actions/workflows/release.yml)
+![Docker Image Version](https://img.shields.io/docker/v/csdms/bmi-example-cxx-grpc4bmi)
+
 # bmi-example-cxx-grpc4bmi
 
 Set up a [grpc4bmi](https://grpc4bmi.readthedocs.io) server
